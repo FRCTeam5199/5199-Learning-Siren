@@ -16,4 +16,6 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public static final int VORTEX_MOTOR_CONTROLLER_ID = 20;
 }

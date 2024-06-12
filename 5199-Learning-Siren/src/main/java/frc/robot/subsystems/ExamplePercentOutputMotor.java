@@ -9,12 +9,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.abstractMotorInterfaces.VortexMotorController;
 
-public VortexMotorController test_vortex_motor_controller;
-
-public class ExampleSubsystem extends SubsystemBase {
+public class ExamplePercentOutputMotor extends SubsystemBase {
+  VortexMotorController vortexMotorController;
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {
-    test_vortex_motor_controller = new VortexMotorController(Constants.VORTEX_MOTOR_CONTROLLER_ID);
+  public ExamplePercentOutputMotor() {
+    vortexMotorController = new VortexMotorController(Constants.VORTEX_MOTOR_CONTROLLER_ID);
   }
 
   /**
@@ -22,25 +21,10 @@ public class ExampleSubsystem extends SubsystemBase {
    *
    * @return a command
    */
-  public Command exampleMethodCommand() {
+  public Command examplePercentOutputCommand() {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
-    return runOnce(
-        () -> {
-          test_vortex_motor_controller.set(0.5);
-        });
-  }
-
-
-  /**
-   * An example method querying a boolean state of the subsystem (for example, a digital sensor).
-   * 
-   * 
-   * @return value of some boolean subsystem state, such as a digital sensor.
-   */
-  public boolean exampleCondition() {
-    // Query some oolean state, such as a digital sensor
-    return false;
+    return runOnce(() -> vortexMotorController.set(0.5));
   }
 
   @Override
