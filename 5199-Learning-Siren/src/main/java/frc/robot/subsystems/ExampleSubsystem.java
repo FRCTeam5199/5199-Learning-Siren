@@ -9,9 +9,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.abstractMotorInterfaces.VortexMotorController;
 
-public VortexMotorController test_vortex_motor_controller;
-
 public class ExampleSubsystem extends SubsystemBase {
+  private final VortexMotorController test_vortex_motor_controller;
   /** Creates a new ExampleSubsystem. */
   public ExampleSubsystem() {
     test_vortex_motor_controller = new VortexMotorController(Constants.VORTEX_MOTOR_CONTROLLER_ID);
