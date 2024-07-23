@@ -23,7 +23,7 @@ public final class Autos {
   // public ShooterSubsystem shooter;
   // public IntakeSubsystem intake;
   // public IndexerSubsystem indexer;
-  public CommandSwerveDrivetrainerveDrive swerveDrive;
+  public CommandSwerveDrivetrain swerveDrive;
 
 
   SwerveRequest.ApplyChassisSpeeds autonDrive = new SwerveRequest.ApplyChassisSpeeds();
@@ -31,7 +31,7 @@ public final class Autos {
 
   //Configure with your own subsystems
   //Pass in instances of the subsystems from RobotContainer
-  public Autos(/*ShooterSubsystem shooter, IntakeSubsystem intake, IndexerSubsystem indexer, */ CommandSwerveDrivetraineDrive swerveDrive) { //Example parameters
+  public Autos(/*ShooterSubsystem shooter, IntakeSubsystem intake, IndexerSubsystem indexer, */ CommandSwerveDrivetrain swerveDrive) { //Example parameters
     //Example setting:
     // this.shooter = shooter;
     // this.intake = intake;
