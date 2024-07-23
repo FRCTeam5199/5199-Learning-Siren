@@ -18,4 +18,8 @@ public final class Constants {
   }
 
   public static final int VORTEX_MOTOR_CONTROLLER_ID = 20;
+
+  public static class Setpoints {
+    public static final double SPEAKER_SETPOINT = 10;
+  }
 }

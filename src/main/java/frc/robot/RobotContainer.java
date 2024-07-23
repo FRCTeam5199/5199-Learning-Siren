@@ -16,8 +16,8 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.generated.TunerConstants;
+import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
-import frc.robot.subsystems.ExampleTrapezoidalProfileMotor;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -41,7 +41,7 @@ public class RobotContainer {
   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
 
   // The robot's subsystems and commands are defined here...
-  private final ExampleTrapezoidalProfileMotor exampleTrapezoidalProfileMotor = new ExampleTrapezoidalProfileMotor();
+  private final ArmSubsystem armSubsystem = new ArmSubsystem();
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
 
@@ -65,9 +65,10 @@ public class RobotContainer {
     // reset the field-centric heading on left bumper press
     joystick.leftBumper().onTrue(drivetrain.runOnce(() -> drivetrain.seedFieldRelative()));
 
-    // Schedule `exampleSetpointCommand` when the Xbox controller's X button is pressed,
-    // cancelling on release.
-    joystick.x().onTrue(exampleTrapezoidalProfileMotor.setGoalCommand(5));
+
+    joystick.x().onTrue(armSubsystem.setArmSpeakerSetpoint());
+    joystick.y().onTrue(armSubsystem.setArmSetpoint(0));
+
 
     if (Utils.isSimulation()) {
       drivetrain.seedFieldRelative(new Pose2d(new Translation2d(), Rotation2d.fromDegrees(90)));
@@ -82,6 +83,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(exampleTrapezoidalProfileMotor);
+    // return Autos.exampleAuto(armSubsystem);
+    return null;
   }
 }
